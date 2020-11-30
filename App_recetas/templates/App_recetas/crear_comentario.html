@@ -1,0 +1,32 @@
+{% extends 'App_core/base-header.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
+
+<!-- ======= SECCION NUEVA RECETA======= -->
+<section>
+  <div class="container margin" data-aos="fade-up">
+
+      <div class="section-title tit">
+        <a href="{% url 'comentarios' context %}">
+          <i class="fas fa-angle-left"></i>
+        </a>
+        <h2>Nuevo comentario</h2>
+      </div>
+
+      <form action="" method="post" id="form-comment" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-comment">
+          {{ form.message }}
+          {{ form.receta_id }}
+          <input type="submit" value="Listo" />
+        </div>     
+      </form>
+
+  </div>
+</section><!-- FINAL SECCION NUEVA RECETA -->
+
+<script src="{% static 'App_core/vendor/jquery/jquery.min.js' %}"></script>
+
+
+{% endblock %}

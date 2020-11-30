@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
+from django.urls import reverse, reverse_lazy
+
 
 
 class RegistroPageView(TemplateView):
@@ -13,3 +15,5 @@ class LoginPageView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {'title':'Login'})
+
+  

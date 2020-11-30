@@ -1,0 +1,127 @@
+{% extends 'App_core/base-header.html' %}
+{% load static %}
+{% block title %}Recetas{% endblock %}
+{% block content %}
+
+<!-- ======= Specials Section ======= -->
+<section id="specials" class="specials">
+
+  <!--movil-->
+  <div class="menu-principal">
+    <a href="{% url 'recetas' %}"><i class="fas fa-home"></i></a>
+    <a href="{% url 'buscar_recetas' %}"><i class="fas fa-search"></i></a>
+    <a href=""><i class="far fa-heart"></i></a>
+    <a href="{% url 'perfil' %}"><img src="{% static 'App_core/img/chefs/chefs-2.jpg' %}" alt=""></a>
+  </div>
+ 
+  <div class="cont-principal">
+
+    <div class="side-bar">    
+      <div class="position">
+        <form action="#" method="POST" class="form-buscar">    
+          <input type="text" name="buscar" id="buscar" placeholder="Buscar"/>
+          <button type="submit" id="enviar-buscar"><i class="fas fa-search"></i></button>
+        </form>
+
+        <p class="my-4">Recetas sugeridas</p>
+
+        <div>
+          <article class="my-3">
+            <div class="r-sugerida">
+              <img src="{% static 'App_core/img/garron-de-cordero-al.jpg' %}" alt="">
+              
+              <div class="ver-receta ml-2">
+                <p class="m-0">nombre receta</p>
+                <a href="#">ver receta</a> 
+              </div>
+            </div>  
+          </article>
+
+          <article class="my-3">
+            <div class="r-sugerida">
+              <img src="{% static 'App_core/img/garron-de-cordero-al.jpg' %}" alt="">
+              
+              <div class="ver-receta ml-2">
+                <p class="m-0">nombre receta</p>
+                <a href="#">ver receta</a> 
+              </div>
+            </div>  
+          </article>
+
+          <article class="my-3">
+            <div class="r-sugerida">
+              <img src="{% static 'App_core/img/garron-de-cordero-al.jpg' %}" alt="">
+              
+              <div class="ver-receta ml-2">
+                <p class="m-0">nombre receta</p>
+                <a href="#">ver receta</a> 
+              </div>
+            </div>  
+          </article>
+
+          <article class="my-3">
+            <div class="r-sugerida">
+              <img src="{% static 'App_core/img/garron-de-cordero-al.jpg' %}" alt="">
+              
+              <div class="ver-receta ml-2">
+                <p class="m-0">nombre receta</p>
+                <a href="#">ver receta</a> 
+              </div>
+            </div>  
+          </article>
+
+          <article class="my-3">
+            <div class="r-sugerida">
+              <img src="{% static 'App_core/img/garron-de-cordero-al.jpg' %}" alt="">
+              
+              <div class="ver-receta ml-2">
+                <p class="m-0">nombre receta</p>
+                <a href="#">ver receta</a> 
+              </div>
+            </div>  
+          </article>
+        </div>
+      </div>    
+    </div>
+
+    <div class="principal">
+      {% for receta in receta_list|dictsort:"id" reversed %}
+        <article class="receta-principal border mb-3 pb-3">
+          <h4 class="text-center my-4">{{receta.title}}</h4>
+      
+          <div class="cont-user-principal mb-2">
+            <div class="my-2 usuario-principal">
+              <img src="{% static 'App_core/img/chefs/chefs-2.jpg' %}" alt="">
+              <p class="ml-3 my-0"><a href="{% url 'perfil' %}">Nombre Usuario</a></p>                  
+            </div>
+      
+            <div>
+              <a href="{% url 'receta' receta.id %}"><button class="boton-receta-usuario">ver receta</button></a>
+            </div>
+          </div>
+        
+          <div class="contenido-receta">
+            <img src="{{receta.image.url}}" alt="">
+            
+            <div class="iconos-receta my-2">
+              <div>
+                <i class="far fa-heart"></i>
+                <a href="{% url 'comentarios' receta.id %}"><i class="ml-2 far fa-comment"></i></a> 
+              </div>
+              <div>
+                <i class="far fa-bookmark"></i>
+              </div>  
+            </div>
+      
+            <div class="iconos-receta">
+              <p>10 me gusta</p>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    
+    </div>
+  </div>
+</section>
+                             
+{% endblock %}

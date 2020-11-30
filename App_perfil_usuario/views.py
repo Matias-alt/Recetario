@@ -1,14 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
+from App_recetas.models import Receta
 
 class PerfilPageView(TemplateView):
     template_name = "App_perfil_usuario/perfil.html"
+    recetas = Receta.objects.all()
 
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {'title':'Perfil'})
+    def get_context_data(self, *args, **kwargs):
+        
+        context = ({
+            'title':'Perfil',
+            'recetas':self.recetas
+        })
 
-class NuevaRecetaPageView(TemplateView):
-    template_name = "App_perfil_usuario/nueva-receta.html"
+        return context
 
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name, {'title':'Nueva Receta'})
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return redirect(reverse_lazy('login'))
+
+        return super(PerfilPageView, self).dispatch(request, *args, **kwargs)
+                                                    

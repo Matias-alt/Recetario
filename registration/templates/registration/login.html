@@ -1,0 +1,61 @@
+{% extends 'App_core/base-header.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
+
+  <!-- ======= Login Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title margin">
+        <h2>Ingreso de usuarios</h2>
+        <p>Ingresa tus datos</p>
+      </div>
+    </div>
+
+    <div class="container" data-aos="fade-up">
+
+      <div class="row mt-2">
+
+        <div class="col-lg-8 mt-2 mt-lg-0 mx-auto">
+
+          <form action="" method="post">{% csrf_token %}
+            <h3 class="mb-4 text-center">Iniciar sesión</h3>
+            {% if form.non_field_errors %}
+              <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+            {% endif %}
+
+
+            <div class="col-lg-6 mx-auto contenedor-form">  
+              <div class="form-row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" name="username" autofocus maxlength="254" required
+                    id="id_username" class="form-control" placeholder="Nombre de usuario"/>
+                      <div class="validate"></div>
+                  </div>
+              </div>
+
+              <div class="form-row">
+                  <div class="col-md-12 form-group">
+                    <input type="password" name="password" required
+                    id="id_password" class="form-control" placeholder="Contraseña"/>
+                      <div class="validate"></div>
+                  </div>
+              </div>
+           </div>
+
+
+            <div class="text-center"><input type="submit"  value="Acceder"></div>
+            
+
+          </form>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Login Section -->
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'App_core/base-header.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
+
+<!-- ======= SECCION COMENTARIOS ======= -->
+<section>
+  <div class="container margin" data-aos="fade-up">
+
+      <div class="section-title tit">
+        <a href="{% url 'recetas' %}">
+          <i class="fas fa-angle-left"></i>
+        </a>
+        <h2>Comentarios</h2>
+      </div>
+
+      <a href="{% url 'crear_comentario' context %}">
+        <button class="boton-receta-usuario btn-comment">Agregar comentario</button>
+      </a>
+
+      {% for comentario in comentario_list|dictsort:"id" reversed %}
+
+        
+        <div class="mb-5">
+          <div class="my-2 usuario-principal coment">
+              <img src="{% static 'App_core/img/chefs/chefs-2.jpg' %}" alt="">
+              <p class="ml-3 my-0"><a href="#">Nombre Usuario</a></p>
+              <span class="ml-2">- {{comentario.created.date}}</span>                  
+          </div>
+
+          <div>
+              <p>{{comentario.message}}</p>
+              <div class="star-comment ">
+                  <i id="comment" class="icofont-star animate__bounceIn"></i>
+                  <p>{{comentario.likes}}</p>
+              </div>
+          </div>
+        </div>
+      {% endfor %}
+     
+    </div>
+
+</section><!-- FINAL SECCION COMENTARIOS -->
+
+<script src="{% static 'App_core/js/comentario-receta.js' %}"></script>
+
+{% endblock %}

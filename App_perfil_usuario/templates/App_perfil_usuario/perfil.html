@@ -5,6 +5,15 @@
 
 <!-- ======= SECCION INFO USUARIO ======= -->
 <section id="chefs" class="chefs">
+
+   <!--movil-->
+   <div class="menu-principal">
+    <a href="{% url 'recetas' %}"><i class="fas fa-home"></i></a>
+    <a href="{% url 'buscar_recetas' %}"><i class="fas fa-search"></i></a>
+    <a href=""><i class="far fa-heart"></i></a>
+    <a href="{% url 'perfil' %}"><img src="{% static 'App_core/img/chefs/chefs-2.jpg' %}" alt=""></a>
+  </div>
+
   <div class="container margin" data-aos="fade-up">
 
     <div class="section-title">
@@ -91,43 +100,13 @@
       
 
       <div class="recetas-usuario" data-aos="fade-up" data-aos-delay="200">
-
-        <a href="{% url 'receta' %}">
-          <div class="receta-usuario">
-            <img src="{% static 'App_core/img/menu/lobster-bisque.jpg' %}"  alt=""> 
-          </div>
-        </a>
-        
-        <a href="">
-          <div class="receta-usuario">
-            <img src="{% static 'App_core/img/menu/bread-barrel.jpg' %}"  alt="">    
-          </div>
-        </a>
-        
-        <a href="">
-          <div class="receta-usuario">
-            <img src="{% static 'App_core/img/menu/cake.jpg' %}"  alt="">  
-          </div>
-        </a>
-        
-        <a href="">
-          <div class="receta-usuario">
-            <img src="{% static 'App_core/img/menu/lobster-bisque.jpg' %}"  alt="">   
-          </div>
-        </a>
-        
-        <a href="">
-          <div class="receta-usuario">
-            <img src="{% static 'App_core/img/menu/bread-barrel.jpg' %}"  alt="">  
-          </div>
-        </a>
-        
-        <a href="">
-          <div class="receta-usuario">
-            <img src="{% static 'App_core/img/menu/cake.jpg' %}"  alt="">  
-          </div>
-        </a>
-        
+        {% for receta in recetas reversed %}
+          <a href="">
+            <div class="receta-usuario">
+              <img src="{{receta.image.url}}"  alt=""> 
+            </div>
+          </a>
+        {% endfor %}         
       </div>
 
     </div>

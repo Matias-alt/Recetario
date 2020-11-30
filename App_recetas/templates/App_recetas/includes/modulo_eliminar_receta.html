@@ -1,0 +1,23 @@
+<div id="eliminar" class="fondo-oscuro esconder">
+    <div class="menu-opciones">
+      <i id="cerrar" class="icofont-close-line"></i>
+      <p id="eli" class="h5 text-center">Eliminar</p>
+      <p id="edi" class="h5 text-center">Editar</p>
+    </div>
+ </div>
+
+ <div id="confirmar" class="fondo-oscuro esconder">
+    <div class="menu-opciones font-color">
+      <p class="text-center h4">¿Estas seguro de eliminar esta receta?</p>
+
+
+      <form method="post">{% csrf_token %}
+        <input type="text" value="{{receta.id}}">
+        <input type="submit" value="Si, seguro">
+      </form>
+
+      <p id="confirm-delete" name="{{receta.id}}" class="text-center h5">Si, seguro</p>
+      <p id="cancelar" class="text-center h5">cancelar</p>
+    </div>
+</div>
+

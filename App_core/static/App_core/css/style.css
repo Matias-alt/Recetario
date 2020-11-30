@@ -3,7 +3,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #0c0b09;
+  background: #000000;
   color: #fff;
 }
 
@@ -1923,6 +1923,68 @@ section {
 /*========================
   ==== PERFIL USUARIO ====
   ========================*/
+
+/* receta detail */
+
+
+.esconder{
+  display: none!important;
+}
+
+.mostrar{
+  display: block!important;
+}
+
+
+
+.fondo-oscuro{
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  background-color: #000000be;
+  z-index: 2;
+}
+
+.menu-opciones{
+  margin: 0 auto;
+  width: 80%;
+  position: relative;
+  top: 10%;
+  z-index: 3;
+  overflow-y: auto;
+  background: #1a1814;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: ease-in-out 0.2s;
+  border-radius: 10px;
+  padding: 1rem 1rem 0.5rem 1rem;
+}
+
+.menu-opciones i{
+  font-size: 1.8rem;
+  margin-left: 90%;
+}
+
+.font-color p:first-child{
+  color: white;
+}
+
+.menu-opciones p{
+  color: #cda45e;
+  margin-bottom: 1.5rem;
+}
+
+.receta-detail{
+  margin-top: 6rem;
+}
+
+.icon-menu-recipe i{
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;  
+}
+
 .recetas-usuario{
   width: 100%;
   display: grid;
@@ -1937,12 +1999,15 @@ section {
   cursor: pointer;
   transition: all .2s ease-in-out;
 }
+
+
 .receta-usuario:hover{
   filter: grayscale(50%);
 }
 
 .receta-usuario img{
   width: 100%!important;
+  height: 140px!important;
 }
 
 .receta-usuario h2{
@@ -1962,6 +2027,11 @@ section {
     text-transform: uppercase;
     font-size: 1.5rem;
     margin: 1rem 0;
+  }
+
+  .receta-usuario img{
+    width: 100%!important;
+    height: 350px!important;
   }
 }
 
@@ -2042,7 +2112,7 @@ section {
 }
 
 .user-recipe img{
-  width: 15%;
+  width: 10%;
   border: 1px solid #cda45e;
   border-radius: 50%; 
 }
@@ -2155,7 +2225,7 @@ section {
 }
 
 .menu-principal img{
-  width: 8%;
+  width: 30px;
   border: 1px solid #cda45e;
   border-radius: 50%;
 }
@@ -2306,11 +2376,103 @@ section {
 }
 
 /*========================
-  ==== MENSAJE ERROR ====
+  ==== COMENTARIOS ====
   ========================*/
-.error-msg{
-  color: red!important;
-  font-size: 0.9rem!important;
-  font-family: "Poppins", sans-serif!important;
-  font-weight: 100!important;
+.coment img{
+  width: 10%!important;
+}
+
+@media (min-width: 768px) {
+  .coment img{
+    width: 5%!important;
+  }
+}
+
+.star-comment{
+  display: flex;
+  align-items: center;
+}
+
+.star-comment i{
+  font-size: 1.5rem;
+  color: #8d8d8d;
+}
+
+.star-comment i:hover{
+  font-size: 1.5rem;
+  color: #cda45e;
+}
+
+.star-comment p{
+  margin: 0 0 0 0.3rem;
+}
+
+.btn-comment{
+  display: block;
+  margin: 0 auto 2rem auto;
+  width: 60%;
+}
+
+@media (min-width: 768px) {
+  .btn-comment{
+    width: 20%;
+  }
+}
+
+.input-comment input{
+  background-color: transparent;
+  border: 1px solid #cab289;
+}
+
+.input-comment Textarea{
+  background-color: transparent;
+  font-size: 20px;
+  border: 1px solid #cab289;
+  color: white;
+}
+
+.input-comment input{
+  display: block;
+  margin: 2rem auto!important;
+}
+
+/* BUSCAR RECETAS GENERAL */
+.search-recipe{
+  margin-top: 3rem!important;
+  border-bottom: 1px solid #cda45e;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-recipe input{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.search-recipe i{
+  color: #cda45e;
+  font-size: 1.3rem;
+}
+
+
+
+.display-flex{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.foto-perfil{
+  width: 5%!important;
+  margin-left: 1rem;
+}
+
+.foto-perfil img{
+  width: 100%;
+  border-radius: 50%;
+  border: 1px solid #cda45e;
 }

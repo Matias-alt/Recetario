@@ -31,14 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'App_core',
-    'App_registro',
     'App_recetas',
     'App_blogs',
     'App_perfil_usuario',
@@ -132,3 +133,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # Archivos media
 MEDIA_URL = '/Media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')
+
+# Redireccionar al hacer login
+LOGIN_REDIRECT_URL = 'recetas'
+LOGOUT_REDIRECT_URL = 'login'

@@ -1,0 +1,43 @@
+{% extends 'App_core/base-header.html' %}
+{% load static %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
+
+<!--movil-->
+
+<div class="menu-principal">
+    <a href="{% url 'recetas' %}"><i class="fas fa-home"></i></a>
+    <a href="{% url 'buscar_recetas' %}"><i class="fas fa-search"></i></a>
+    <a href=""><i class="far fa-heart"></i></a>
+    <a href="{% url 'perfil' %}"><img src="{% static 'App_core/img/chefs/chefs-2.jpg' %}" alt=""></a>
+</div>
+
+
+
+<!-- ======= SECCION RECETAS ======= -->
+<section id="menu" class="menu section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="search-recipe">
+            <form action="" method="POST">
+                <i class="icofont-search-1"></i>
+                <input type="text" placeholder="Buscar">
+            </form> 
+        </div>
+      
+
+        <div class="recetas-usuario mt-10" data-aos="fade-up" data-aos-delay="200">
+            {% for receta in recetas reversed %}
+            <a href="">
+                <div class="receta-usuario">
+                <img src="{{receta.image.url}}"  alt=""> 
+                </div>
+            </a>
+            {% endfor %}         
+        </div>
+
+    </div>
+</section><!-- FINAL SECCION RECETAS -->
+
+{% endblock %}
+
